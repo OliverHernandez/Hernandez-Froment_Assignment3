@@ -1,0 +1,104 @@
+import java.security.SecureRandom;
+import java.util.Scanner;
+
+
+public class CAI3 
+{
+	static Scanner scanner = new Scanner(System.in);
+	
+	public static void quiz()
+	{
+		SecureRandom random = new SecureRandom();
+		int randomValue1 = random.nextInt(10);
+		int randomValue2 = random.nextInt(10);
+		int count = 0;
+		for (int  i = 0; i < 10; i++) 
+		{
+			askQuestion(randomValue1, randomValue2);
+			String input = readResponse();
+			int solution = (randomValue1 * randomValue2);
+			boolean isCorrect = isAnswerCorrect(input, solution);
+			if (isCorrect)
+			{
+				displayCorrectResponse();
+				count++;
+			}
+			else
+			{
+				displayIncorrectResponse();
+			}
+			 randomValue1 = random.nextInt(10);
+			 randomValue2 = random.nextInt(10);
+		}
+		displayCompletionMessage(count);
+
+		scanner.close();
+	}
+	
+	public static void askQuestion(int randomValue1, int randomValue2)
+	{
+		System.out.println("How much is "  + randomValue1 + " times " + randomValue2 + "?");
+
+	}
+	
+	public static String readResponse()
+	{
+		return scanner.nextLine();
+	}
+	
+	public static boolean isAnswerCorrect(String input, int solution)
+	{
+		return (Integer.parseInt(input) == solution);
+	}
+	
+	public static void displayCorrectResponse()
+	{
+		SecureRandom random = new SecureRandom();
+		int possibleCorrect = random.nextInt(3);
+		switch (possibleCorrect) 
+		{
+			case 0: System.out.println("Very good!");
+				break;
+			case 1: System.out.println("Excellent!");
+				break;
+			case 2: System.out.println("Nice work!");
+			break;
+			case 3: System.out.println("Keep up the good work!");
+			break;
+		}
+
+	}
+	
+	public static void displayIncorrectResponse()
+	{
+		SecureRandom random = new SecureRandom();
+		int possibleCorrect = random.nextInt(3);
+		switch (possibleCorrect) 
+		{
+			case 0: System.out.println("No. Please try again.");
+				break;
+			case 1: System.out.println("Wrong. Try once more.");
+				break;
+			case 2: System.out.println("Don’t give up!");
+			break;
+			case 3: System.out.println("No. Keep trying.");
+			break;
+		}
+	}
+	
+	public static void displayCompletionMessage(int count)
+	{
+		if (count <= 7)
+		{
+			System.out.println("Please ask your teacher for extra help.");
+		}
+		else System.out.println("Congratulations, you are ready to go to the next level!");
+
+	}
+	
+		
+	public static void main(String[] args)
+	{
+		quiz();
+	}
+}

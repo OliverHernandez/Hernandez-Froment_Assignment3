@@ -1,0 +1,14 @@
+
+import java.security.SecureRandom;
+
+public class CAI1
+{
+	public static void main(String[] args)
+	{
+		SecureRandom random = new SecureRandom();
+		int randomValue1 = random.nextInt(10);
+		int randomValue2 = random.nextInt(10);
+		
+		System.out.println("How much is "  + randomValue1 + " times " + randomValue2 + "?");
+	}
+}

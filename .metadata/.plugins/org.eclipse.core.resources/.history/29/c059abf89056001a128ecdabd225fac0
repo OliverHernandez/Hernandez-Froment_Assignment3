@@ -1,0 +1,123 @@
+
+import java.security.SecureRandom;
+import java.util.Scanner;
+
+
+public class CAI1
+{
+	public void quiz()
+	{
+		SecureRandom random = new SecureRandom();
+		int randomValue1 = random.nextInt(10);
+		int randomValue2 = random.nextInt(10);
+		
+		System.out.println("How much is "  + randomValue1 + " times " + randomValue2 + "?");
+		
+		Scanner scanner = new Scanner(System.in);
+		String input = scanner.nextLine();
+		
+		int solution = (randomValue1 * randomValue2);
+		
+		if (Integer.parseInt(input) == solution)
+		{
+			System.out.println("Very good!");
+		}
+			while (true)
+			{
+				System.out.println("No. Please try again");
+				System.out.println("How much is "  + randomValue1 + " times " + randomValue2 + "?");
+				input = scanner.nextLine();
+				if (Integer.parseInt(input) == solution)
+				{
+					break;
+				}
+				
+			}
+			System.out.println("Very good!");
+	scanner.close();
+	}
+	
+	public void askQuestion()
+	{
+		System.out.println("How much is "  + randomValue1 + " times " + randomValue2 + "?");
+
+	}
+	
+	public void readResponse()
+	{
+		Scanner scanner = new Scanner(System.in);
+		String input = scanner.nextLine();
+	}
+	
+	public void isAnswerCorrest()
+	{
+		int solution = (randomValue1 * randomValue2);
+		
+		if (Integer.parseInt(input) == solution)
+		{
+			System.out.println("Very good!");
+		}
+	}
+	
+	public void displayCorrectResponse()
+	{
+		System.out.println("Very good!");
+	}
+	
+	public void displayIncorrectResponse()
+	{
+		while (true)
+		{
+			System.out.println("No. Please try again");
+			System.out.println("How much is "  + randomValue1 + " times " + randomValue2 + "?");
+			input = scanner.nextLine();
+			if (Integer.parseInt(input) == solution)
+			{
+				break;
+			}
+			
+		}
+		System.out.println("Very good!");
+	}
+	
+	
+//	public static void main(String[] args)
+//	{
+//		SecureRandom random = new SecureRandom();
+//		int randomValue1 = random.nextInt(10);
+//		int randomValue2 = random.nextInt(10);
+//		
+//		System.out.println("How much is "  + randomValue1 + " times " + randomValue2 + "?");
+//		
+//		Scanner scanner = new Scanner(System.in);
+//		String input = scanner.nextLine();
+//		
+//		int solution = (randomValue1 * randomValue2);
+//		
+//		if (Integer.parseInt(input) == solution)
+//		{
+//			System.out.println("Very good!");
+//		}
+//			while (true)
+//			{
+//				System.out.println("No. Please try again");
+//				System.out.println("How much is "  + randomValue1 + " times " + randomValue2 + "?");
+//				input = scanner.nextLine();
+//				if (Integer.parseInt(input) == solution)
+//				{
+//					break;
+//				}
+//				
+//			}
+//			System.out.println("Very good!");
+//	scanner.close();
+//	}
+	
+	public static void main(String[] args)
+	{
+		quiz();
+	}
+	
+	
+	
+}

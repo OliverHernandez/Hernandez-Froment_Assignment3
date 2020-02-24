@@ -1,0 +1,31 @@
+
+import java.security.SecureRandom;
+import java.util.Scanner;
+
+
+public class CAI1
+{
+	public static void main(String[] args)
+	{
+		SecureRandom random = new SecureRandom();
+		int randomValue1 = random.nextInt(10);
+		int randomValue2 = random.nextInt(10);
+		
+		System.out.println("How much is "  + randomValue1 + " times " + randomValue2 + "?");
+		
+		Scanner scanner = new Scanner(System.in);
+		String input = scanner.nextLine();
+		
+		int solution = (randomValue1 * randomValue2);
+		
+		if(Integer.parseInt(input) == solution)
+		{
+			System.out.println("Very good!");
+		}
+		else
+		{
+			System.out.println("No. Please try again.");
+		}
+	scanner.close();
+	}
+}

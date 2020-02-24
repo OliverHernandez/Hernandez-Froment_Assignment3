@@ -1,0 +1,25 @@
+
+public class SavingsAccount 
+{
+	private double savingsBalance()
+	{
+		
+	}
+	
+	public static double annualInterestRate()
+	{
+		annualInterestRate = .05;
+	}
+	
+	private double calculateMonthlyInterest()
+	{
+		
+	}
+	
+	public void modifyInterestRate()
+	{
+		this.annualInterestRate = 
+	}
+	
+	
+}

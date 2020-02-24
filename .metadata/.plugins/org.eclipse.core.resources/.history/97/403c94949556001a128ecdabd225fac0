@@ -1,0 +1,87 @@
+import java.security.SecureRandom;
+import java.util.Scanner;
+
+
+public class CAI2 
+{
+	static Scanner scanner = new Scanner(System.in);
+	
+	public static void quiz()
+	{
+		SecureRandom random = new SecureRandom();
+		int randomValue1 = random.nextInt(10);
+		int randomValue2 = random.nextInt(10);
+		
+		askQuestion(randomValue1, randomValue2);
+		
+		String input = readResponse();
+		
+		int solution = (randomValue1 * randomValue2);
+		
+		boolean isCorrect = isAnswerCorrect(input, solution);
+		
+		if (isCorrect)
+		{
+			displayCorrectResponse();
+		}
+		else
+		{
+			while (true)
+			{
+				displayIncorrectResponse();
+				askQuestion(randomValue1, randomValue2);
+				input = readResponse();
+				isCorrect = isAnswerCorrect(input, solution);
+				if (isCorrect)
+				{
+					break;
+				}
+			}
+			displayCorrectResponse();
+		}
+		scanner.close();
+	}
+	
+	public static void askQuestion(int randomValue1, int randomValue2)
+	{
+		System.out.println("How much is "  + randomValue1 + " times " + randomValue2 + "?");
+
+	}
+	
+	public static String readResponse()
+	{
+		return scanner.nextLine();
+	}
+	
+	public static boolean isAnswerCorrect(String input, int solution)
+	{
+		return (Integer.parseInt(input) == solution);
+	}
+	
+	public static void displayCorrectResponse()
+	{
+		int possibleCorrect = random.nextInt(3);
+		switch (possibleCorrect) 
+		{
+			case 0: System.out.println("Very good!");
+				break;
+			case 1: System.out.println("Excellent!");
+				break;
+			case 2: System.out.println("Nice work!");
+			break;
+			case 3: System.out.println("Keep up the good work!");
+			break;
+		}
+
+	}
+	
+	public static void displayIncorrectResponse()
+	{
+		System.out.println("No. Please try again");
+	}
+		
+	public static void main(String[] args)
+	{
+		quiz();
+	}
+}
